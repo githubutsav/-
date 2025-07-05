@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previous Year Papers | Open Notes Hub</title>
+  <link rel="stylesheet" href="papers-page.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="firebaseConfig.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script defer src="resource-page.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Previous Year Papers</h1>
+      <div class="user-info">
+        <span id="user-name"></span>
+                <a href="login.html" class="btn">Logout</a>
+        <a href="index.html" class="btn">Home</a>
+        <button id="toggle-mode" class="btn mode-toggle" title="Toggle Light/Dark Mode">🌙</button>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="resources-section card">
+        <h2>All Previous Year Papers</h2>
+        <div id="resources-list">
+          <details>
+            <summary><strong>📅 2024 <span class="badge badge-purple">Latest</span></strong></summary>
+            <details>
+              <summary><strong>1️⃣ Semester 1</strong></summary>
+              <ul>
+                <li>📄 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Mathematics I - End Sem.pdf</a> <span class="badge badge-green">Maths</span></li>
+                <li>🔬 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Physics I - End Sem.pdf</a> <span class="badge badge-cyan">Physics</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>2️⃣ Semester 2</strong></summary>
+              <ul>
+                <li>🧮 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Mathematics II - Final Exam.pdf</a> <span class="badge badge-blue">Maths</span></li>
+                <li>🧪 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Chemistry - Final Exam.pdf</a> <span class="badge badge-purple">Chemistry</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>3️⃣ Semester 3</strong></summary>
+              <ul>
+                <li>📝 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Data Structures - University Paper.pdf</a> <span class="badge badge-orange">DS</span></li>
+                <li>🔌 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Digital Electronics - Final Paper.pdf</a> <span class="badge badge-pink">Electronics</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>4️⃣ Semester 4</strong></summary>
+              <ul>
+                <li>🖥️ <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Operating Systems - End Term.pdf</a> <span class="badge badge-cyan">OS</span></li>
+                <li>📐 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Discrete Mathematics - End Sem.pdf</a> <span class="badge badge-blue">Maths</span></li>
+              </ul>
+            </details>
+          </details>
+          <details>
+            <summary><strong>📅 2023 <span class="badge badge-grey">Recent</span></strong></summary>
+            <details>
+              <summary><strong>5️⃣ Semester 5</strong></summary>
+              <ul>
+                <li>🧠 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Design & Analysis of Algorithms - University Paper.pdf</a> <span class="badge badge-orange">DAA</span></li>
+                <li>🗄️ <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Database Management Systems - University Paper.pdf</a> <span class="badge badge-green">DBMS</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>6️⃣ Semester 6</strong></summary>
+              <ul>
+                <li>🖱️ <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Artificial Intelligence - End Sem.pdf</a> <span class="badge badge-cyan">AI</span></li>
+                <li>📝 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Software Engineering - University Paper.pdf</a> <span class="badge badge-pink">SE</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>7️⃣ Semester 7</strong></summary>
+              <ul>
+                <li>🤖 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Machine Learning - University Paper.pdf</a> <span class="badge badge-blue">ML</span></li>
+                <li>🛠️ <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Compiler Design - University Paper.pdf</a> <span class="badge badge-grey">CD</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>8️⃣ Semester 8</strong></summary>
+              <ul>
+                <li>📊 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Project Management - End Sem.pdf</a> <span class="badge badge-cyan">PM</span></li>
+                <li>☁️ <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Cloud Computing - University Paper.pdf</a> <span class="badge badge-purple">Cloud</span></li>
+              </ul>
+            </details>
+          </details>
+          <details>
+            <summary><strong>📅 2022</strong></summary>
+            <details>
+              <summary><strong>1️⃣ Semester 1</strong></summary>
+              <ul>
+                <li>📄 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Mathematics I - Exam.pdf</a> <span class="badge badge-green">Maths</span></li>
+                <li>🔬 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Physics I - Exam.pdf</a> <span class="badge badge-cyan">Physics</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>2️⃣ Semester 2</strong></summary>
+              <ul>
+                <li>🧮 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Mathematics II - Exam.pdf</a> <span class="badge badge-blue">Maths</span></li>
+                <li>🧪 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Chemistry - Exam.pdf</a> <span class="badge badge-purple">Chemistry</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>3️⃣ Semester 3</strong></summary>
+              <ul>
+                <li>📝 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Data Structures - Exam.pdf</a> <span class="badge badge-orange">DS</span></li>
+                <li>🔌 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Digital Electronics - Exam.pdf</a> <span class="badge badge-pink">Electronics</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>4️⃣ Semester 4</strong></summary>
+              <ul>
+                <li>🖥️ <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Operating Systems - Exam.pdf</a> <span class="badge badge-cyan">OS</span></li>
+                <li>📐 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Discrete Mathematics - Exam.pdf</a> <span class="badge badge-blue">Maths</span></li>
+              </ul>
+            </details>
+          </details>
+          <details>
+            <summary><strong>📅 2021</strong></summary>
+            <details>
+              <summary><strong>5️⃣ Semester 5</strong></summary>
+              <ul>
+                <li>🧠 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Design & Analysis of Algorithms - PYQ.pdf</a> <span class="badge badge-orange">DAA</span></li>
+                <li>🗄️ <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Database Management Systems - PYQ.pdf</a> <span class="badge badge-yellow">DBMS</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>6️⃣ Semester 6</strong></summary>
+              <ul>
+                <li>🖱️ <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Artificial Intelligence - PYQ.pdf</a> <span class="badge badge-cyan">AI</span></li>
+                <li>📝 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Software Engineering - Exam.pdf</a> <span class="badge badge-pink">SE</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>7️⃣ Semester 7</strong></summary>
+              <ul>
+                <li>🤖 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Machine Learning - PYQ.pdf</a> <span class="badge badge-blue">ML</span></li>
+                <li>🛠️ <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Compiler Design - PYQ.pdf</a> <span class="badge badge-grey">CD</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>8️⃣ Semester 8</strong></summary>
+              <ul>
+                <li>📊 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Project Management - PYQ.pdf</a> <span class="badge badge-cyan">PM</span></li>
+                <li>☁️ <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Cloud Computing - PYQ.pdf</a> <span class="badge badge-purple">Cloud</span></li>
+              </ul>
+            </details>
+          </details>
+        </div>
+        <style>
+        .badge {
+          display: inline-block;
+          font-size: 0.85em;
+          font-weight: 600;
+          padding: 2px 10px;
+          border-radius: 12px;
+          margin-left: 8px;
+          vertical-align: middle;
+          letter-spacing: 0.5px;
+        }
+        .badge-blue { background: #e3f0ff; color: #357ae8; }
+        .badge-green { background: #e6f9e8; color: #34a853; }
+        .badge-purple { background: #f3e6ff; color: #8e24aa; }
+        .badge-orange { background: #fff3e0; color: #f57c00; }
+        .badge-yellow { background: #fffde7; color: #fbc02d; }
+        .badge-pink { background: #ffe3f0; color: #d81b60; }
+        .badge-cyan { background: #e0f7fa; color: #00838f; }
+        .badge-grey { background: #ececec; color: #333; }
+        </style>
+      </section>
+    </main>
+    <footer class="footer">
+      <span>Made with ❤️ by Utsav</span>
+    </footer>
+  </div>
+  <script>
+    // Dark/Light mode toggle
+    const modeBtn = document.getElementById('toggle-mode');
+    if (modeBtn) {
+      modeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        modeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      });
+    }
+  </script>
+</body>
+</html>

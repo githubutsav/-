@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester-wise Notes | Open Notes Hub</title>
+  <link rel="stylesheet" href="notes-page.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="firebaseConfig.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script defer src="resource-page.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Semester-wise Notes</h1>
+      <div class="user-info">
+        <span id="user-name"></span>
+        <a href="login.html" class="btn">Logout</a>
+        <a href="index.html" class="btn">Home</a>
+        <button id="toggle-mode" class="btn mode-toggle" title="Toggle Light/Dark Mode">🌙</button>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="resources-section card">
+        <h2>All Notes</h2>
+        <div id="resources-list">
+          <details open>
+            <summary><strong>1️⃣ Semester 1 <span class="badge badge-blue">First Year</span></strong></summary>
+            <ul>
+              <li>🧮 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Engineering Mathematics I - Complete Notes.pdf</a> <span class="badge badge-green">Maths</span></li>
+              <li>🔬 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Engineering Physics I - Lecture Notes.pdf</a> <span class="badge badge-cyan">Physics</span></li>
+              <li>⚡ <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Basic Electrical Engineering - Handwritten Notes.pdf</a> <span class="badge badge-yellow">Electrical</span></li>
+              <li>💻 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Programming in C - Lab Manual.pdf</a> <span class="badge badge-pink">C</span></li>
+              <li>📝 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">English Communication Skills.pdf</a> <span class="badge badge-purple">English</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>2️⃣ Semester 2 <span class="badge badge-blue">First Year</span></strong></summary>
+            <ul>
+              <li>🧮 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Engineering Mathematics II - Complete Notes.pdf</a> <span class="badge badge-green">Maths</span></li>
+              <li>🧪 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Engineering Chemistry - Quick Revision.pdf</a> <span class="badge badge-purple">Chemistry</span></li>
+              <li>💻 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Programming in C - Lab Manual.pdf</a> <span class="badge badge-pink">C</span></li>
+              <li>📝 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Environmental Studies.pdf</a> <span class="badge badge-cyan">EVS</span></li>
+              <li>📐 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Engineering Graphics.pdf</a> <span class="badge badge-blue">Graphics</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>3️⃣ Semester 3 <span class="badge badge-cyan">Second Year</span></strong></summary>
+            <ul>
+              <li>🌲 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Data Structures - University Notes.pdf</a> <span class="badge badge-orange">DS</span></li>
+              <li>🔌 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Digital Electronics - Exam Guide.pdf</a> <span class="badge badge-purple">Electronics</span></li>
+              <li>🖥️ <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Computer Organization & Architecture - Notes.pdf</a> <span class="badge badge-grey">COA</span></li>
+              <li>📐 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Discrete Mathematics - Important Topics.pdf</a> <span class="badge badge-blue">Maths</span></li>
+              <li>📝 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Object Oriented Programming.pdf</a> <span class="badge badge-pink">OOP</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>4️⃣ Semester 4 <span class="badge badge-cyan">Second Year</span></strong></summary>
+            <ul>
+              <li>🖥️ <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Computer Organization & Architecture - Notes.pdf</a> <span class="badge badge-grey">COA</span></li>
+              <li>📐 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Discrete Mathematics - Important Topics.pdf</a> <span class="badge badge-blue">Maths</span></li>
+              <li>📝 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Microprocessors & Microcontrollers.pdf</a> <span class="badge badge-orange">MPMC</span></li>
+              <li>🔌 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Signals & Systems.pdf</a> <span class="badge badge-purple">Signals</span></li>
+              <li>💻 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Operating Systems - Concepts.pdf</a> <span class="badge badge-cyan">OS</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>5️⃣ Semester 5 <span class="badge badge-yellow">Third Year</span></strong></summary>
+            <ul>
+              <li>🧠 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Design & Analysis of Algorithms - Gold Notes.pdf</a> <span class="badge badge-orange">DAA</span></li>
+              <li>🗄️ <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Database Management Systems - Short Notes.pdf</a> <span class="badge badge-green">DBMS</span></li>
+              <li>📝 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Software Engineering - Model Answers.pdf</a> <span class="badge badge-pink">SE</span></li>
+              <li>📊 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Computer Networks - Essentials.pdf</a> <span class="badge badge-blue">CN</span></li>
+              <li>🔒 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Cyber Security Basics.pdf</a> <span class="badge badge-grey">Security</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>6️⃣ Semester 6 <span class="badge badge-yellow">Third Year</span></strong></summary>
+            <ul>
+              <li>🖱️ <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Operating Systems - Last Minute Notes.pdf</a> <span class="badge badge-cyan">OS</span></li>
+              <li>📝 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Software Engineering - Model Answers.pdf</a> <span class="badge badge-pink">SE</span></li>
+              <li>📊 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Artificial Intelligence - Notes.pdf</a> <span class="badge badge-green">AI</span></li>
+              <li>🔌 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Embedded Systems.pdf</a> <span class="badge badge-purple">Embedded</span></li>
+              <li>💻 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Web Technologies.pdf</a> <span class="badge badge-blue">Web</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>7️⃣ Semester 7 <span class="badge badge-green">Final Year</span></strong></summary>
+            <ul>
+              <li>🤖 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Machine Learning - Complete Guide.pdf</a> <span class="badge badge-blue">ML</span></li>
+              <li>🛠️ <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Compiler Design - Key Concepts.pdf</a> <span class="badge badge-grey">CD</span></li>
+              <li>📊 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Big Data Analytics.pdf</a> <span class="badge badge-cyan">Big Data</span></li>
+              <li>📝 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Cloud Computing - Concepts.pdf</a> <span class="badge badge-purple">Cloud</span></li>
+              <li>💻 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Mobile Application Development.pdf</a> <span class="badge badge-pink">Mobile</span></li>
+            </ul>
+          </details>
+          <details open>
+            <summary><strong>8️⃣ Semester 8 <span class="badge badge-green">Final Year</span></strong></summary>
+            <ul>
+              <li>📊 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Project Management - Viva Prep.pdf</a> <span class="badge badge-cyan">PM</span></li>
+              <li>☁️ <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Cloud Computing - Short Notes.pdf</a> <span class="badge badge-purple">Cloud</span></li>
+              <li>📝 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Entrepreneurship Development.pdf</a> <span class="badge badge-yellow">ED</span></li>
+              <li>💡 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Innovation & Startup.pdf</a> <span class="badge badge-green">Innovation</span></li>
+              <li>🧑‍💼 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Professional Ethics.pdf</a> <span class="badge badge-blue">Ethics</span></li>
+            </ul>
+          </details>
+        </div>
+        <style>
+        .badge {
+          display: inline-block;
+          font-size: 0.85em;
+          font-weight: 600;
+          padding: 2px 10px;
+          border-radius: 12px;
+          margin-left: 8px;
+          vertical-align: middle;
+          letter-spacing: 0.5px;
+        }
+        .badge-blue { background: #e3f0ff; color: #357ae8; }
+        .badge-green { background: #e6f9e8; color: #34a853; }
+        .badge-purple { background: #f3e6ff; color: #8e24aa; }
+        .badge-orange { background: #fff3e0; color: #f57c00; }
+        .badge-yellow { background: #fffde7; color: #fbc02d; }
+        .badge-pink { background: #ffe3f0; color: #d81b60; }
+        .badge-cyan { background: #e0f7fa; color: #00838f; }
+        .badge-grey { background: #ececec; color: #333; }
+        </style>
+      </section>
+    </main>
+    <footer class="footer">
+      <span>Made with ❤️ by Utsav</span>
+    </footer>
+  </div>
+  <script>
+    // Dark/Light mode toggle
+    const modeBtn = document.getElementById('toggle-mode');
+    if (modeBtn) {
+      modeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        modeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      });
+    }
+  </script>
+</body>
+</html>

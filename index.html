@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Notes Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="firebaseConfig.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <div id="main-page" class="container">
+    <header class="header">
+      <div class="header-left">
+        <h1><span class="logo" aria-label="Open Notes Hub Logo">
+          <svg width="32" height="32" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+            <defs>
+              <linearGradient id="logo-gradient" x1="0" y1="0" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#a21caf"/>
+                <stop offset="100%" stop-color="#be185d"/>
+              </linearGradient>
+            </defs>
+            <rect width="54" height="54" rx="10" fill="url(#logo-gradient)"/>
+            <g>
+              <rect x="13" y="7" width="28" height="40" rx="6" fill="#fff"/>
+              <rect x="18" y="12" width="18" height="3" rx="1.5" fill="#000"/>
+              <rect x="18" y="20" width="18" height="2.5" rx="1.25" fill="#000"/>
+              <rect x="18" y="26" width="18" height="2.5" rx="1.25" fill="#000"/>
+              <rect x="18" y="32" width="18" height="2.5" rx="1.25" fill="#000"/>
+            </g>
+          </svg>
+        </span> Open Notes Hub</h1>
+      </div>
+      <div class="user-info header-right">
+        <div class="search-filter-bar">
+          <input type="text" id="search-input" placeholder="Search notes, papers, cheat sheets, guides, or web..." />
+          <select id="filter-type">
+            <option value="all">All</option>
+            <option value="notes">Notes</option>
+            <option value="papers">Previous Year Papers</option>
+            <option value="cheatsheet">Cheat Sheets</option>
+            <option value="guide">Study Guides</option>
+            <option value="youtube">YouTube Videos</option>
+            <option value="google">Google Search</option>
+          </select>
+          <button id="search-btn" class="btn">🔍 Search</button>
+        </div>
+        <a href="login.html" class="btn btn-logout">Logout</a>
+        <button id="toggle-mode" class="btn mode-toggle" title="Toggle Light/Dark Mode">🌙</button>
+      </div>
+    </header>
+    <main class="main-content">
+      <div class="left-column">
+        <section class="resources-section card">
+          <h2>Resources</h2>
+          <div class="resources-tabs">
+            <button class="tab-btn active" data-type="all">All</button>
+            <button class="tab-btn" data-type="notes">Notes</button>
+            <button class="tab-btn" data-type="papers">Previous Year Papers</button>
+            <button class="tab-btn" data-type="cheatsheet">Cheat Sheets</button>
+            <button class="tab-btn" data-type="guide">Study Guides</button>
+          </div>
+          <div id="resources-list">
+            <details>
+              <summary><strong>📚 Semester-wise Notes <span class="badge badge-blue">8 Semesters</span></strong></summary>
+              <ul>
+                <li>📝 <a href="notes.html" target="_blank">View All Semester Notes</a> <span class="badge badge-green">PDF</span></li>
+                <li>🧮 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Engineering Mathematics I - Complete Notes.pdf</a> <span class="badge badge-green">Maths</span></li>
+                <li>🔬 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Engineering Physics I - Lecture Notes.pdf</a> <span class="badge badge-cyan">Physics</span></li>
+                <li>⚡ <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Basic Electrical Engineering - Handwritten Notes.pdf</a> <span class="badge badge-yellow">Electrical</span></li>
+                <li>💻 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Programming in C - Lab Manual.pdf</a> <span class="badge badge-pink">C</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>🗂️ Previous Year Papers <span class="badge badge-purple">2024-2021</span></strong></summary>
+              <ul>
+                <li>📄 <a href="papers.html" target="_blank">View Year-wise Papers</a> <span class="badge badge-orange">PYQ</span></li>
+                <li>📄 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">B.Tech CSE End Sem Paper.pdf</a> <span class="badge badge-green">2024</span></li>
+                <li>🧮 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Engineering Mathematics II - Final Exam.pdf</a> <span class="badge badge-blue">2024</span></li>
+                <li>🔌 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Digital Electronics - Previous Year.pdf</a> <span class="badge badge-pink">2023</span></li>
+                <li>💻 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Operating Systems - University Paper.pdf</a> <span class="badge badge-cyan">2023</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>💡 Cheat Sheets <span class="badge badge-yellow">Math, Code, More</span></strong></summary>
+              <ul>
+                <li>🧩 <a href="cheatsheet.html" target="_blank">View All Cheat Sheets by Subject</a> <span class="badge badge-pink">Quick Ref</span></li>
+                <li>📑 <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">Maths Formulae - Quick Reference.pdf</a> <span class="badge badge-green">Maths</span></li>
+                <li>🧾 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Calculus Cheat Sheet.pdf</a> <span class="badge badge-yellow">Calculus</span></li>
+                <li>📝 <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">C Programming - Syntax & Tips.pdf</a> <span class="badge badge-pink">C</span></li>
+              </ul>
+            </details>
+            <details>
+              <summary><strong>🎯 Study Guides <span class="badge badge-cyan">Exam, Career</span></strong></summary>
+              <ul>
+                <li>📘 <a href="guide.html" target="_blank">View All Study Guides by Theme</a> <span class="badge badge-grey">Guide</span></li>
+                <li>📚 <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank">Last Minute Revision Guide.pdf</a> <span class="badge badge-green">Revision</span></li>
+                <li>🖊️ <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank">How to Write Answers - Tips.pdf</a> <span class="badge badge-blue">Tips</span></li>
+                <li>📄 <a href="https://www.orimi.com/pdf-test.pdf" target="_blank">Resume Building Guide.pdf</a> <span class="badge badge-purple">Resume</span></li>
+              </ul>
+            </details>
+          </div>
+        </section>
+        <section class="youtube-section card">
+          <h2>Study Videos</h2>
+          <div id="youtube-videos-list" style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="youtube-video-embed" style="aspect-ratio: 16/9; width: 100%; max-width: 400px;">
+              <iframe width="100%" height="225" src="https://www.youtube.com/embed/2ePf9rue1Ao" title="How to Study Effectively" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="youtube-video-embed" style="aspect-ratio: 16/9; width: 100%; max-width: 400px;">
+              <iframe width="100%" height="225" src="https://www.youtube.com/embed/IlU-zDU6aQ0" title="Top 10 Study Tips for Students" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <div class="youtube-video-embed" style="aspect-ratio: 16/9; width: 100%; max-width: 400px;">
+              <iframe width="100%" height="225" src="https://www.youtube.com/embed/3hH8kTHFw2A" title="Programming in C - Complete Course" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="right-column">
+        <section class="upload-section card">
+          <h2>Upload Resource</h2>
+          <form id="upload-form">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <input type="text" id="title" placeholder="Title (e.g. 'Engineering Mathematics I - Complete Notes')" required />
+              <select id="type">
+                <option value="notes">📚 Notes</option>
+                <option value="papers">🗂️ Previous Year Papers</option>
+                <option value="cheatsheet">💡 Cheat Sheet</option>
+                <option value="guide">🎯 Study Guide</option>
+              </select>
+              <input type="file" id="file" required />
+              <button type="submit" class="btn upload-btn">⬆️ Upload <span class="badge badge-green">PDF</span></button>
+            </div>
+          </form>
+          <style>
+          .badge {
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+          }
+          .badge-blue { background: #e3f0ff; color: #357ae8; }
+          .badge-green { background: #e6f9e8; color: #34a853; }
+          .badge-purple { background: #f3e6ff; color: #8e24aa; }
+          .badge-orange { background: #fff3e0; color: #f57c00; }
+          .badge-yellow { background: #fffde7; color: #fbc02d; }
+          .badge-pink { background: #ffe3f0; color: #d81b60; }
+          .badge-cyan { background: #e0f7fa; color: #00838f; }
+          .badge-grey { background: #ececec; color: #333; }
+          </style>
+        </section>
+        <section class="quick-access-section card">
+          <h2>Quick Access</h2>
+          <div id="quick-access-list">
+            <ul class="quick-access-list">
+              <li>
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" class="quick-access-link">
+                  <span class="quick-access-icon">🕑</span>
+                  <span class="quick-access-title">Engineering Mathematics I - Complete Notes.pdf</span>
+                  <span class="badge badge-green">PDF</span>
+                  <span class="quick-access-open">Open</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.orimi.com/pdf-test.pdf" target="_blank" class="quick-access-link">
+                  <span class="quick-access-icon">🕑</span>
+                  <span class="quick-access-title">B.Tech CSE End Sem Paper.pdf</span>
+                  <span class="badge badge-blue">PDF</span>
+                  <span class="quick-access-open">Open</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.africau.edu/images/default/sample.pdf" target="_blank" class="quick-access-link">
+                  <span class="quick-access-icon">🕑</span>
+                  <span class="quick-access-title">Maths Formulae - Quick Reference.pdf</span>
+                  <span class="badge badge-yellow">PDF</span>
+                  <span class="quick-access-open">Open</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf" target="_blank" class="quick-access-link">
+                  <span class="quick-access-icon">🕑</span>
+                  <span class="quick-access-title">Last Minute Revision Guide.pdf</span>
+                  <span class="badge badge-purple">PDF</span>
+                  <span class="quick-access-open">Open</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <style>
+          .quick-access-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .quick-access-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fcf7fd;
+            border-radius: 10px;
+            padding: 12px 18px;
+            box-shadow: 0 2px 8px rgba(66,133,244,0.06);
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            transition: background 0.18s, box-shadow 0.18s;
+          }
+          .quick-access-link:hover {
+            background: #fde3ff;
+            box-shadow: 0 4px 16px rgba(66,133,244,0.12);
+          }
+          .quick-access-icon {
+            font-size: 1.3em;
+            color: #4285f4;
+          }
+          .quick-access-title {
+            flex: 1;
+            font-size: 1.05em;
+            color: #222;
+          }
+          .quick-access-open {
+            background: #4285f4;
+            color: #713e66;
+            border-radius: 8px;
+            padding: 2px 12px;
+            font-size: 0.95em;
+            margin-left: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+          }
+          @media (max-width: 700px) {
+            .quick-access-link { padding: 8px 8px; gap: 8px; }
+            .quick-access-title { font-size: 0.98em; }
+          }
+          </style>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <span>Made with ❤️ by Utsav</span>
+    </footer>
+  </div>
+  <script>
+    // Dark/Light mode toggle
+    const modeBtn = document.getElementById('toggle-mode');
+    modeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      modeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    // Navigation for each resource type
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-type');
+        window.location.href = `${type}.html`;
+      });
+    });
+
+    const resources = [
+      { type: 'notes', title: 'Engineering Mathematics I - Complete Notes', url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', badge: 'Maths', badgeClass: 'badge-green' },
+      { type: 'papers', title: 'B.Tech CSE End Sem Paper', url: 'https://www.orimi.com/pdf-test.pdf', badge: '2024', badgeClass: 'badge-green' },
+      { type: 'cheatsheet', title: 'Maths Formulae - Quick Reference', url: 'https://www.africau.edu/images/default/sample.pdf', badge: 'Maths', badgeClass: 'badge-green' },
+      { type: 'guide', title: 'Last Minute Revision Guide', url: 'https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf', badge: 'Revision', badgeClass: 'badge-green' },
+     
+    ];
+
+    function renderGrid(filtered) {
+      let grid = document.getElementById('resource-grid');
+      if (!grid) {
+        grid = document.createElement('div');
+        grid.className = 'grid-layout';
+        grid.id = 'resource-grid';
+        document.querySelector('.main-content').prepend(grid);
+      }
+      grid.innerHTML = '';
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="no-results">No results found.</div>';
+        return;
+      }
+      filtered.forEach((res, idx) => {
+        if (res.type === 'youtube') {
+          grid.innerHTML += `<div class="resource-card youtube-card" data-videoid="${res.videoId}" style="cursor:pointer;">
+            <div class="resource-title">${res.title}</div>
+            <iframe width="100%" height="180" src="https://www.youtube.com/embed/${res.videoId}" frameborder="0" allowfullscreen style="border-radius:10px;"></iframe>
+            <a href="${res.url}" target="_blank" class="resource-link">Watch on YouTube</a>
+            <span class="badge ${res.badgeClass}">${res.badge}</span>
+          </div>`;
+        } else {
+          grid.innerHTML += `<div class="resource-card">
+            <div class="resource-title">${res.title}</div>
+            <a href="${res.url}" target="_blank" class="resource-link">Open</a>
+            <span class="badge ${res.badgeClass}">${res.badge}</span>
+          </div>`;
+        }
+      });
+      // Add click event for YouTube video cards to show only the clicked video
+      document.querySelectorAll('.youtube-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Prevent link click from triggering this
+          if (e.target.tagName === 'A') return;
+          const videoId = this.getAttribute('data-videoid');
+          const title = this.querySelector('.resource-title').textContent;
+          grid.innerHTML = `<div class='resource-card youtube-card'>
+            <div class='resource-title'>${title}</div>
+            <iframe width='100%' height='320' src='https://www.youtube.com/embed/${videoId}' frameborder='0' allowfullscreen style='border-radius:10px;'></iframe>
+            <a href='https://www.youtube.com/watch?v=${videoId}' target='_blank' class='resource-link'>Watch on YouTube</a>
+          </div>`;
+        });
+      });
+    }
+
+    function filterResources() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const type = document.getElementById('filter-type').value;
+      let filtered = resources.filter(r =>
+        (type === 'all' || r.type === type) &&
+        r.title.toLowerCase().includes(query)
+      );
+      renderGrid(filtered);
+    }
+
+    document.getElementById('search-btn').onclick = async function() {
+      const query = document.getElementById('search-input').value.trim();
+      const type = document.getElementById('filter-type').value;
+      if (type === 'youtube' && query) {
+        // YouTube search (using YouTube Data API v3, requires API key)
+        const apiKey = 'YOUR_YOUTUBE_API_KEY';
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=6&key=${apiKey}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        const videos = (data.items || []).map(item => ({
+          type: 'youtube',
+          title: item.snippet.title,
+          url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+          videoId: item.id.videoId,
+          badge: 'YouTube',
+          badgeClass: 'badge-red'
+        }));
+        renderGrid(videos);
+        return;
+      }
+      if (type === 'google' && query) {
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`,'_blank');
+        return;
+      }
+      filterResources();
+    };
+
+    document.getElementById('filter-type').onchange = filterResources;
+    document.getElementById('search-input').oninput = filterResources;
+
+    // Initial render
+    renderGrid(resources);
+
+    document.getElementById('see-all-videos').onclick = function() {
+      document.getElementById('more-videos').style.display = 'block';
+      this.style.display = 'none';
+    };
+
+    function showYoutubeSection(show) {
+      document.getElementById('youtube-section').style.display = show ? '' : 'none';
+    }
+
+    // Show/hide YouTube section based on filter
+    const filterType = document.getElementById('filter-type');
+    filterType.addEventListener('change', function() {
+      if (this.value === 'youtube') {
+        showYoutubeSection(true);
+      } else {
+        showYoutubeSection(false);
+      }
+    });
+    // On page load, hide YouTube section
+    showYoutubeSection(false);
+  </script>
+  <script type="module">
+  import { auth } from './firebase-config.js';
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
+</body>
+</html>
